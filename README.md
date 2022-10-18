@@ -85,3 +85,11 @@ weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
 dotfiles were an easy way to get into bash customization, and then to jump ship
 to zsh a bit later. A decent amount of the code in these dotfiles stem or are
 inspired from Ryan's original project.
+
+## New things
+
+The bash folder:
+Put local changes that are valid only to the current machine into the bashrc.local file. This will step by step be updated to the other configurations as well. This file is currently under version control, but you should not be notfied of changes due to the following command (I hope it pushes it to remote, otherwise a script solution in the bootstrap script would be good):
+  git update-index --assume-unchanged bash/bashrc.local
+If you want to track it again:
+  git update-index --no-assume-unchanged <filename>
