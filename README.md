@@ -1,5 +1,30 @@
-# holman does dotfiles
+# emanuel does dotfiles
+This repository is fork of holman does dotfiles (See end of this README). It is mainly a customization to 
+suit my own needs. Feel free to clone it in turn and adapt it to your needs, but probably it's best 
+to clone the original and only take inspiration from here.
 
+## simple setup: 
+Still the same as in the original repo. Simply clone the github repo and run the bootstrap script.
+```sh
+git clone https://github.com/MrNotSure/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+script/bootstrap
+```
+
+## Adding new config files for anything:
+If you need to ad some new configuration that lives in the $HOME directory directly (aka a dotfile), just put it into any of the folders where it fits, and if it doesn't fit, create a new folder with the name of the dotfile with the following pattern: 
+```sh
+name_of_dotfile.symlink
+```
+Symlink to $HOME/.name_of_dotfile will then be created automatically in the bootstrap file.
+
+## Hacky parts:
+Currently bash is supported in a hacky way. Just add all the alias files you want inside the 'bash/bash_aliases' file if you want it, but sort new aliases into the topics as much as possible in order to keep the structure and also have them insibe zsh shell.
+
+## Local shell rc file:
+You should put all shell settings specific only to your machine, no matter if bash or zsh (currently they use the same ~/.localrc file), into the file ~/.localrc file. It should have been created during the bootstrap. If it already existed, it will be overwritten.
+
+# holman does dotfiles
 Your dotfiles are how you personalize your system. These are mine.
 
 I was a little tired of having long alias files and everything strewn about

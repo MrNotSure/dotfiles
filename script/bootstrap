@@ -135,6 +135,13 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+  if ! [[ -a ~/.localrc ]]
+  then
+    touch ~/.localrc
+    success "Createt new ~/.localrc for your local shell setups. Please add all the local shell setups to it."
+  else
+    success "Found existing ~/.localrc, not creating a new one.  Please add all the local shell setups to it."
+  fi
 }
 
 setup_gitconfig

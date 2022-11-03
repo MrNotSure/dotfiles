@@ -89,8 +89,15 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f $HOME/.dotfiles/bash/aliases.bash ]; then
+    . $HOME/.dotfiles/bash/aliases.bash
+fi
+if [ -f $HOME/.dotfiles/git/aliases.zsh ]; then
+    . $HOME/.dotfiles/git/aliases.zsh
+fi
+
+if [ -f $HOME/.dotfiles/docker/aliases.zsh ]; then
+    . $HOME/.dotfiles/docker/aliases.zsh
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -104,5 +111,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Source local changes that should not be under version control.
-source $HOME/.dotfiles/bash/bashrc.local
+# Stash your environment variables and other machine specific setups in ~/.localrc. 
+# This means they'll stay out of your main dotfiles repository (which may be public, like this one), 
+# but you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
