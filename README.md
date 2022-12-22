@@ -22,7 +22,7 @@ Symlink to $HOME/.name_of_dotfile will then be created automatically in the boot
 Currently bash is supported in a hacky way. Just add all the alias files you want inside the 'bash/bash_aliases' file if you want it, but sort new aliases into the topics as much as possible in order to keep the structure and also have them insibe zsh shell.
 
 ## Local shell rc file:
-You should put all shell settings specific only to your machine, no matter if bash or zsh (currently they use the same ~/.localrc file), into the file ~/.localrc file. It should have been created during the bootstrap. If it already existed, it will be overwritten.
+You should put all shell settings specific only to the currently used machine, no matter if bash or zsh (currently they use the same ~/.localrc file), into the file ~/.localrc file. It should have been created during the bootstrap. If it already existed, it will be overwritten.
 
 # holman does dotfiles
 Your dotfiles are how you personalize your system. These are mine.
