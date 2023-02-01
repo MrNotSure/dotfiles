@@ -72,36 +72,19 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f $HOME/.dotfiles/bash/aliases.bash ]; then
-    . $HOME/.dotfiles/bash/aliases.bash
+    source $HOME/.dotfiles/bash/aliases.bash
 fi
 
-# Load all shell compatible files (bash and zsh).
-# Including the aliases besides the bash specific aliases.
-# all of you shell files (compatible with zsh and bash)
-typeset -U shell_config_files
-shell_config_files=($HOME/.dotfiles/**/*.shell)
 
 # load all of the files compatible with both shells (zsh and bash)
-# load the path files
-for file in ${(M)shell_config_files:#*/*.shell}
+# everything with the *.shell ending will be sourced here
+for file in $HOME/.dotfiles/**/*.shell
 do
   source $file
 done
@@ -124,3 +107,7 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+
+####################################################################################################
+############### END: Put everything that ends up beyond this point in $HOME/.localrc ###############
+####################################################################################################
