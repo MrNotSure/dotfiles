@@ -92,13 +92,19 @@ fi
 if [ -f $HOME/.dotfiles/bash/aliases.bash ]; then
     . $HOME/.dotfiles/bash/aliases.bash
 fi
-if [ -f $HOME/.dotfiles/git/aliases.zsh ]; then
-    . $HOME/.dotfiles/git/aliases.zsh
-fi
 
-if [ -f $HOME/.dotfiles/docker/aliases.zsh ]; then
-    . $HOME/.dotfiles/docker/aliases.zsh
-fi
+# Load all shell compatible files (bash and zsh).
+# Including the aliases besides the bash specific aliases.
+# all of you shell files (compatible with zsh and bash)
+typeset -U shell_config_files
+shell_config_files=($HOME/.dotfiles/**/*.shell)
+
+# load all of the files compatible with both shells (zsh and bash)
+# load the path files
+for file in ${(M)shell_config_files:#*/*.shell}
+do
+  source $file
+done
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
