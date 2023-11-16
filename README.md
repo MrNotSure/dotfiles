@@ -1,4 +1,4 @@
-# emanuel does dotfiles
+# MrNotSure does dotfiles
 This repository is fork of holman does dotfiles (See end of this README). It is mainly a customization to 
 suit my own needs. Feel free to clone it in turn and adapt it to your needs, but probably it's best 
 to clone the original and only take inspiration from here.
